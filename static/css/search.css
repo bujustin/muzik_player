@@ -1,0 +1,123 @@
+/* GENERAL BUTTON STYLING */
+.clickable{
+  opacity: 0.4;
+}
+
+.clickable:hover{
+  opacity: 1;
+}
+
+.clickable:focus{
+  outline: none;
+}
+/***************************************/
+
+
+/* SEARCHBAR */
+.searchbar{
+  position: relative;
+  vertical-align: center;
+  background-color: black;
+  opacity: 0.6;
+  top: 0;
+  height: 10%;
+  width: 100%;
+}
+
+.searchbar:hover{
+  opacity: 1.0;
+}
+
+.search{
+  margin-right: 10px;
+  right: 0;
+  height: 26px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  margin-top: -13px;
+
+}
+
+#searchBox{
+  position: relative;
+  float: left;
+  margin: 10px;
+  top: -8px;
+  height: 20px;
+  width: 200px;
+  border: 0;
+}
+
+#searchBox:focus{
+  outline: none;
+}
+
+#searchButton{
+  position: relative;
+  float: right;
+  margin-top: auto;
+  height: 15px;
+  width: 15px;
+  margin-left: 5px;
+}
+/***************************************/
+
+
+/* SEARCH RESULTS */
+#searchResults{
+  position:relative;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: grey;
+  border-collapse: collapse;
+}
+
+.searchResults td{
+  width: 22%;
+}
+
+/* header */
+.resultsHeader td{
+  position: relative;
+  height: 20px;
+  top: 2px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  padding-left: 10px;
+}
+
+/* body */
+
+.resultsBody{
+  overflow-y: scroll;
+}
+
+.song{
+  height: 40px;
+}
+
+.song:hover{
+  background-color: #F98334;
+}
+
+.action{
+  position: relative;
+  width: 8%;
+}
+
+.songInfo{
+  position: relative;
+  display: inline-block;
+  height: 5px;
+  top: 10px;
+  margin-left: 10px;
+}
+
+.add{
+  height: 20px;
+  width: 20px;
+}
+/***************************************/
