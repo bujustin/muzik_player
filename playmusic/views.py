@@ -2,7 +2,10 @@ from django.shortcuts import *
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
-from interface import *
+#from interface import *
+import sys
+sys.path.append("..")
+from modules.interface import Interface
 interface = Interface()
 
 def index(request):
@@ -41,3 +44,6 @@ def prev(request):
     interface.playerPrev()
     return HttpResponseRedirect(reverse("index"))
 
+def setpos(request, q):
+    interface.playerSetPos(q)
+    return HttpResponseRedirect(reverse("index"))
