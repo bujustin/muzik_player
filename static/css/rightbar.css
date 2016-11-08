@@ -1,0 +1,59 @@
+/* FRIENDS */
+.friendContainer{
+  position: relative;
+  width: 100%;
+  top: 0;
+  height: 60%;
+}
+
+.friendStatus{
+  position: relative;
+  width: 100%;
+}
+
+.friendHeader tr{
+  height: 30px;
+}
+
+.friendHeader td{
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid gray;
+  text-align: left;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+.friendList tr{
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: white;
+}
+
+.friendList td{
+  position: relative;
+  width: 50%;
+  text-align: left;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+/* RECOMMENDATIONS */
+.recommendationsContainer{
+  position: relative;
+  width: 100%;
+  height: 40%;
+  bottom: 0;
+}
+
+.recHeader{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+  font-size: 25px;
+  padding-left: 10px;
+}

@@ -17,15 +17,10 @@
 .searchbar{
   position: relative;
   vertical-align: center;
-  background-color: black;
-  opacity: 0.6;
+  background-color: gray;
   top: 0;
   height: 10%;
   width: 100%;
-}
-
-.searchbar:hover{
-  opacity: 1.0;
 }
 
 .search{
@@ -70,12 +65,12 @@
   top: 0;
   right: 0;
   width: 100%;
-  background-color: grey;
   border-collapse: collapse;
 }
 
 .searchResults td{
-  width: 22%;
+  width: 30%;
+  overflow: hidden;
 }
 
 /* header */
@@ -85,12 +80,11 @@
   top: 2px;
   text-align: left;
   font-weight: bold;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
   padding-left: 10px;
 }
 
 /* body */
-
 .resultsBody{
   overflow-y: scroll;
 }
@@ -100,12 +94,21 @@
 }
 
 .song:hover{
-  background-color: #F98334;
+  background-color: #26F2B8;
+}
+
+.odd{
+  background-color: rgba(169,169,169,0.5);
+}
+
+.even{
+  background-color: rgba(255,255,255,0.5);
 }
 
 .action{
   position: relative;
-  width: 8%;
+  width: 10%;
+  text-align: center;
 }
 
 .songInfo{
@@ -117,7 +120,10 @@
 }
 
 .add{
+  position: relative;
   height: 20px;
   width: 20px;
+  left: 0;
+
 }
 /***************************************/

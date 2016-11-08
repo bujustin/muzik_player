@@ -1,57 +1,58 @@
 .queueSong {
     position: relative;
-    background-color: #F96300;
-    top: 0;
-    bottom: 303px;
+    height: 100%;
     width: 100%;
-    height: 70%;
     overflow-y: scroll;
 }
 
-Table.qTable {
+Table#qTable {
     position: relative;
     table-layout: fixed;
     top: 0;
-    color: black ;
     font-size: 20px;
     width: 100%;
     height: 100%;
     max-height: 51px;
     min-height: 40px;
-    background-color: #F96300;
     resize: none;
 
 }
 
-.qTable tr {
+#qTable tr {
     overflow: hidden;
     white-space: nowrap;
     height: 40px;
 }
 
-.qTable td {
+#qTable td {
     text-align: left;
     overflow: hidden;
     width: 20px;
     padding-left: 5%;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-bottom: 5px;
     padding-right: 8%;
 }
 
-.qTable td button {
-    float: right;
+#qTable td:hover{
+  background-color: #26F2B8;
 }
 
-.qTable th {
+#qTable td button {
+    float: right;
+    vertical-align: middle;
+}
+
+#qTable th {
     padding-left: 5%;
     height: 54px;
     text-align: left;
-    vertical-align: bottom;
-    border-bottom: 3px solid grey;
+    vertical-align: middle;
+    font-size: 35px;
+    border-bottom: 2px solid grey;
 }
 
-.qTable td div {
+#qTable td div {
     float: left;
     position: absolute;
     height: 25px;
@@ -62,7 +63,7 @@ Table.qTable {
     margin-top: 0em;
 }
 
-.qTable td div text {
+#qTable td div text {
     color: inherit;
     text-decoration: none;
     margin-top: 0em;
