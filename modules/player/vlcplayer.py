@@ -19,14 +19,14 @@ class VlcPlayer(object):
     def Pause(self):
     	self.player.pause()
 
-    def getPosition(self): #Returns player position in seconds
+    def getPosition(self): #Returns player position as a percentage of 1
         try:
             if self.player.get_state() == vlc.State.Ended or self.player.get_state() == vlc.State.NothingSpecial:
-                return ""
+                return 0
             else:
-                return self.player.get_position() * self.length
+                return self.player.get_position()
         except:
-            return ""
+            return 0
 
     def isEmpty(self): #Return true if there is no media loaded
         if self.player.get_state() == vlc.State.NothingSpecial:

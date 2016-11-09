@@ -18,6 +18,7 @@
         <img class="profileImg" src="{{ currentsong.thumbnail }}"/>
     </div>
     <div class="info_title">{{currentsong.title}}</div>
-    <div class="inf_artist">{{currentsong.author}}</div>
-    <div id="timer">{{position}}</div>
+    <div class="info_artist">{{currentsong.author}}</div>
+    <div id="current_position" data-position="{{position}}"></div>
+    <div id="current_length" data-length="{{currentsong.length}}"></div>
 </div>
