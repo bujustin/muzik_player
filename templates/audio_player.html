@@ -1,0 +1,17 @@
+
+<div id = "audio-buttons">
+    <input type = "image" value = "button" id = "prev" class = "clickable" src = "/static/assets/images/icons/back-skip.png"/>
+    <input type = "image" value = "button" id = "play" class = "clickable" src = "/static/assets/images/icons/play.png"/>
+    <input type = "image" value = "button" id = "pause" class = "clickable" src = "/static/assets/images/icons/pause.png"/>
+    <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
+</div>
+<div class = "bar">
+    <img id = "progressBar" src = "/static/assets/images/icons/progress_bg.png"/>
+    <img id = "progressBarHead" src = "/static/assets/images/icons/circle.png"/>
+</div>
+<div class = "barInfo">
+    <span id = "duration">{{position | stringformat:'d'}}</span>
+    <span id = "length">{{ currentSong.length | stringformat:'d'}}</span>
+</div>
+
+

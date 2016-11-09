@@ -22,7 +22,7 @@ urlpatterns = [
 
     url(r'^delete/(?P<q>(\d+))/$', views.delete, name='delete'),
 
-    url(r'^setpos/(?P<q>(\d+))/$', views.setpos, name='setpos'),
+    url(r'^progress$', views.progress, name='progress'),
 
     url(r'^poll$', views.poll, name='poll'),
 ]

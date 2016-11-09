@@ -79,7 +79,7 @@
   width: 10%;
 }
 
-#progressbar{
+#progressBar{
   position: absolute;
   bottom: 25px;
   right: 10px;
@@ -87,7 +87,7 @@
   height: 20%;
 }
 
-#progress{
+#progressBarHead{
   position: relative;
   height: 10px;
   width: 10px;

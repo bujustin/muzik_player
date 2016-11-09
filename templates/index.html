@@ -70,7 +70,7 @@
                 </div>
             </div>
             <!-- PROGRESS BAR + AUDIO MANIPULATION -->
-            <div class = "audio_player">
+            <div class = "audio_player" id = "audio_player">
                 <div id = "audio-buttons">
                     <input type = "image" value = "button" id = "prev" class = "clickable" src = "/static/assets/images/icons/back-skip.png"/>
                     <input type = "image" value = "button" id = "play" class = "clickable" src = "/static/assets/images/icons/play.png"/>
@@ -78,8 +78,8 @@
                     <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
                 </div>
                 <div class = "bar">
-                    <img id = "progressbar" src = "/static/assets/images/icons/progress_bg.png"/>
-                    <img id = "progress" src = "/static/assets/images/icons/circle.png"/>
+                    <img id = "progressBar" src = "/static/assets/images/icons/progress_bg.png"/>
+                    <img id = "progressBarHead" src = "/static/assets/images/icons/circle.png"/>
                 </div>
                 <div class = "barInfo">
                     <span id = "duration">00:00</span>
@@ -89,8 +89,11 @@
         </div>
         <!-- JAVASCRIPT LINKS -->
         <script src="/static/js/jquery-3.1.1.min.js"></script>
+        <!--<script src="/static/js/search.js"></script>-->
         <script src="/static/js/audio.js"></script>
         <script src="/static/js/queueManipulation.js"></script>
         <script src="/static/js/poll.js"></script>
+        <script src="/static/js/progressBar.js"></script>
+        <!--<script type = "text/js" src = "/static/js/action.js"></script>-->
     </body>
 </html>

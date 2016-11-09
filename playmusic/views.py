@@ -2,10 +2,7 @@ from django.shortcuts import *
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
-#from interface import *
-import sys
-sys.path.append("..")
-from modules.interface import Interface
+from interface import *
 interface = Interface()
 
 def index(request):
@@ -19,6 +16,10 @@ def search(request, q):
 def poll(request):
     context = interface.getSidebarContext()
     return render_to_response("sidebar.html", context)
+
+def progress(request):
+    context = interface.getMusicPlayerContext()
+    return render_to_response("audio_player.html",context)
 
 def add(request, q):
     interface.addToQueueFromSearch(q)
@@ -44,6 +45,3 @@ def prev(request):
     interface.playerPrev()
     return HttpResponseRedirect(reverse("index"))
 
-def setpos(request, q):
-    interface.playerSetPos(q)
-    return HttpResponseRedirect(reverse("index"))
