@@ -22,7 +22,8 @@ def getSongs(q):
                 "title": jsonVideoList["items"][i]["snippet"]["title"],
                 "author": jsonVideoList["items"][i]["snippet"]["channelTitle"],
                 "thumbnail": jsonVideoList["items"][i]["snippet"]["thumbnails"]["high"]["url"],
-                "url": url
+                "url": url,
+                "length": 0
                 }
                 songs.append(song)
                 count += 1
@@ -35,6 +36,7 @@ def getBlank():
     "title": "",
     "author": "",
     "thumbnail": "https://pbs.twimg.com/profile_images/458794430200152064/XdQULww6_400x400.png",
-    "url": ""
+    "url": "",
+    "length": 0
     }
     return song

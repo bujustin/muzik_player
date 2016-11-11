@@ -94,9 +94,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) #added for heroku
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles') #added for heroku
+
 STATIC_URL = '/static/'
 
 STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage' #added for whitenoise

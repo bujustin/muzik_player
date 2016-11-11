@@ -80,7 +80,7 @@ class Interface(object):
             self.player.Open(self.currentSong)
             self.player.Play()
         else:
-            self.currentSong = GetBlank()
+            self.currentSong = getBlank()
 
     def playPrev(self):
         if self.queue.hasPrev():

@@ -7,13 +7,16 @@ class Queue(object):
 
     #adds a song to the end of the queue
     def addToQueue(self, song):
-        video = pafy.new(song["url"])
-        url = video.getbestaudio().url
+        try:
+            video = pafy.new(song["url"])
+            url = video.getbestaudio().url
 
-        newSong = song
-        newSong["url"] = url
-        newSong["length"] = video.length
-        self.queue.append(newSong)
+            newSong = song
+            newSong["url"] = url
+            newSong["length"] = video.length
+            self.queue.append(newSong)
+        except:
+            pass
 
     #remove the song object at the specified index from the queue
     def removeFromQueue(self, index):

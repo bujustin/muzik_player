@@ -2,7 +2,6 @@ from django.shortcuts import *
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
-#from interface import *
 import sys
 sys.path.append("..")
 from modules.interface import Interface
