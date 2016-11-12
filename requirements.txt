@@ -2,3 +2,4 @@ Django==1.10.2
 gunicorn==19.6.0
 pafy==0.5.2
 whitenoise==3.2.2
+youtube-dl==2016.11.8.1
