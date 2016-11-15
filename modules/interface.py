@@ -1,7 +1,7 @@
 import threading
 import datetime
 
-from .player.vlcplayer import VlcPlayer
+#from .player.vlcplayer import VlcPlayer
 from .queue.queue import Queue
 from .search.search import *
 
@@ -31,7 +31,7 @@ class Interface(object):
         context = {
             "queue": self.queue.getQueue(),
             "currentsong": self.currentSong,
-            "position": self.player.getPosition()
+            "position": 0 #self.player.getPosition()
         }
         return context
 
