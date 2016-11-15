@@ -5,7 +5,7 @@
 function deleteRow(currentRow) {
     var index = currentRow.parentNode.parentNode.rowIndex;
     document.getElementById("qTable").deleteRow(index);
-    $.get("http://localhost:8000/playmusic/delete/" + index);
+    $.get("/playmusic/delete/" + index);
 }
 
 function newRow(title) {
@@ -21,7 +21,7 @@ function getSearch(){
     var replaced = input.split(' ').join('+');
     $.ajax({ 
         type: "get",
-        url: "http://localhost:8000/playmusic/search/" + replaced,
+        url: "/playmusic/search/" + replaced,
         success: function(data){
             $("#searchResults").html(data);
         }
@@ -30,5 +30,5 @@ function getSearch(){
 
 function addToQueue(currentRow) {
     var index = currentRow.parentNode.parentNode.parentNode.rowIndex;
-    $.get("http://localhost:8000/playmusic/add/" + index);
+    $.get("/playmusic/add/" + index);
 }
