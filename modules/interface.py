@@ -7,7 +7,7 @@ from .search.search import *
 
 class Interface(object):
     def __init__(self):
-        self.player = VlcPlayer()
+        #self.player = VlcPlayer()
         self.queue = Queue()
 
         self.currentSong = getBlank()
