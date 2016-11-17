@@ -1,13 +1,13 @@
 import threading
 import datetime
 
-#from .player.vlcplayer import VlcPlayer
+from .player.vlcplayer import VlcPlayer
 from .queue.queue import Queue
 from .search.search import *
 
 class Interface(object):
     def __init__(self):
-        #self.player = VlcPlayer()
+        self.player = VlcPlayer()
         self.queue = Queue()
 
         self.currentSong = getBlank()
