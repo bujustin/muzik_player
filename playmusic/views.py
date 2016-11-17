@@ -46,3 +46,4 @@ def prev(request):
 def setpos(request, q):
     interface.playerSetPos(q)
     return HttpResponseRedirect(reverse("index"))
+

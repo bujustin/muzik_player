@@ -8,5 +8,4 @@ function poll() {
         }
     });
 }
-
 window.addEventListener("load", poll);

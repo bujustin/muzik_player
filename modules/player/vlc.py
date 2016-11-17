@@ -174,7 +174,6 @@ def find_lib():
 
     else:
         raise NotImplementedError('%s: %s not supported' % (sys.argv[0], sys.platform))
-
     return (dll, plugin_path)
 
 # plugin_path used on win32 and MacOS in override.py

@@ -8,14 +8,6 @@ function deleteRow(currentRow) {
     $.get("http://localhost:8000/playmusic/delete/" + index);
 }
 
-function newRow(title) {
-    var table = document.getElementById("qTable");
-    var row = table.insertRow(1);
-    var song = row.insertCell(0);
-    song.innerHTML = '<div>' + title + '</div><button class="removeButton" onclick = "deleteRow(this)" >X</button></td>';
-
-}
-
 function getSearch(){
     var input = $("#searchBox").val();
     var replaced = input.split(' ').join('+');
@@ -27,6 +19,11 @@ function getSearch(){
         }
     });
 }
+window.addEventListener("keypressed", function (e) {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+        getSearch();
+    }
+});
 
 function addToQueue(currentRow) {
     var index = currentRow.parentNode.parentNode.parentNode.rowIndex;

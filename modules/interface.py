@@ -34,7 +34,7 @@ class Interface(object):
             "position": self.player.getPosition()
         }
         return context
-
+    
     """
     Queue
     """
@@ -64,7 +64,7 @@ class Interface(object):
         self.playPrev()
 
     def playerSetPos(self, q):
-        percentage = int(q) / 100.0
+        percentage = int(q)/100000.0
         self.player.setPosition(percentage)
 
 

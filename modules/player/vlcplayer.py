@@ -41,5 +41,5 @@ class VlcPlayer(object):
             return False
 
     def setPosition(self, percentage):
-        if percentage >= 0 and percentage < 1:
+        if percentage >= 0 and percentage <= 1:
             self.player.set_position(percentage)

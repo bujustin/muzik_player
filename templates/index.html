@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <!-- STYLE LINKS -->
-        <link type = "text/css" rel="stylesheet" href="/static/css/reset.css">
         <link type = "text/css" rel="stylesheet" href="/static/css/box.css">
         <link type = "text/css" rel="stylesheet" href="/static/css/queue.css">
         <link type = "text/css" rel="stylesheet" href="/static/css/player.css">
@@ -31,14 +30,12 @@
                     </table>
                 </div>
                 <!-- COVER IMAGE + SONG TITLE -->
-                <div class="musicInfo">
+                <div class="musicInfo" >
                     <div class="image">
                         <img class="profileImg" src="{{ currentsong.thumbnail }}"/>
                     </div>
                     <div class="info_title">{{currentsong.title}}</div>
-                    <div class="inf_artist">{{currentsong.author}}</div>
-                    <div id="current_position" data-position=""></div>
-                    <div id="current_length" data-length=""></div>
+                    <div class="info_artist">{{currentsong.author}}</div>
                 </div>
             </div>
             <!-- SEARCH + SEARCH RESULTS -->
@@ -47,8 +44,8 @@
                     <!-- SEARCH -->
                     <div class = "searchbar">
                         <div class = "search">
-                            <input placeholder="Search..." type="text" id = "searchBox" required>
-                            <input type="image" value = "button" id = "searchButton" class = "clickable" onclick = "getSearch()" src = "/static/assets/images/icons/search.png">
+                            <input placeholder="Search..." type="text" id = "searchBox" required >
+                            <input type="image" value = "button" id = "searchButton" class = "clickable"  onclick = "getSearch()" src = "/static/assets/images/icons/search.png">
                         </div>
                     </div>
                     <!-- RESULTS -->
@@ -79,8 +76,11 @@
                     <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
                 </div>
                 <div class = "bar">
-                    <img id = "progressbar" src = "/static/assets/images/icons/progress_bg.png"/>
-                    <img id = "progress" src = "/static/assets/images/icons/circle.png"/>
+                    <div id = "progressbar" onclick="visualProgress(event)"  ondrag= "visualProgress(event)" ondragend="setProgress(event)" onmouseup= "setProgress(event)">
+                        <div id = "progress" on draggable="false">
+                            <div id = "progressHead" draggable="false"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class = "barInfo">
                     <span id = "duration">00:00:00</span>
@@ -93,27 +93,6 @@
         <script src="/static/js/audio.js"></script>
         <script src="/static/js/queueManipulation.js"></script>
         <script src="/static/js/poll.js"></script>
-        <script>
-            setInterval(function() { 
-                var bar_width = parseFloat(document.getElementById("progressbar").offsetWidth);
-
-                var song_position = document.getElementById("current_position").getAttribute("data-position");
-                var circle_position = 10 + (bar_width * song_position);
-                document.getElementById("progress").style.left = circle_position.toString() + "px"; 
-
-                var song_length = document.getElementById("current_length").getAttribute("data-length");
-
-                var date_position = new Date(null);
-                date_position.setSeconds(Math.trunc(song_position * song_length));
-                var time_position = date_position.toISOString().substr(11, 8);
-
-                var date_length = new Date(null);
-                date_length.setSeconds(song_length);
-                var time_length = date_length.toISOString().substr(11, 8);
-
-                document.getElementById("duration").innerHTML = time_position;
-                document.getElementById("length").innerHTML = time_length;
-            }, 1000);
-        </script>
+        <script src="/static/js/progress.js"></script>
     </body>
 </html>
