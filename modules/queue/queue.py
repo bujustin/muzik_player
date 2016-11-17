@@ -12,7 +12,7 @@ class Queue(object):
             url = video.getbestaudio().url
 
             newSong = song
-            newSong["url"] = url
+            newSong["url"] = "http://www.stephaniequinn.com/Music/Commercial%20DEMO%20-%2001.mp3" #url
             newSong["length"] = video.length
             self.queue.append(newSong)
         except:
