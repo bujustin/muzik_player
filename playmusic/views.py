@@ -28,21 +28,21 @@ def delete(request, q):
     return HttpResponseRedirect(reverse("index"))
 
 def play(request):
-    #interface.playerPlay()
+    interface.playerPlay()
     return HttpResponseRedirect(reverse("index"))
 
 def pause(request):
-    #interface.playerPause()
+    interface.playerPause()
     return HttpResponseRedirect(reverse("index"))
 
 def skip(request):
-    #interface.playerSkip()
+    interface.playerSkip()
     return HttpResponseRedirect(reverse("index"))
 
 def prev(request):
-    #interface.playerPrev()
+    interface.playerPrev()
     return HttpResponseRedirect(reverse("index"))
 
 def setpos(request, q):
-    #interface.playerSetPos(q)
+    interface.playerSetPos(q)
     return HttpResponseRedirect(reverse("index"))

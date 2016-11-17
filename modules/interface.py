@@ -31,7 +31,7 @@ class Interface(object):
         context = {
             "queue": self.queue.getQueue(),
             "currentsong": self.currentSong,
-            "position": 0 #self.player.getPosition()
+            "position": self.player.getPosition()
         }
         return context
 
