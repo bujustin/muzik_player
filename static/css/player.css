@@ -80,25 +80,38 @@
   position: relative;
   display: inline-block;
   white-space: nowrap;
-  top: 5px;
   right: 0;
   height: 100%;
   width: 10%;
 }
 
 #progressbar{
-  position: absolute;
-  bottom: 25px;
+  position: relative;
+  display: inline-block;
+  background: #A9A9A9;
+  border-radius: 10px;
   right: 10px;
   width: 100%;
-  height: 15%;
+  height: 20%;
 }
 
 #progress{
   position: relative;
-  height: 10px;
-  width: 10px;
-  bottom: -13px;
+  background: black;
+  border-radius: 10px;
+  height: 100%;
+  width: 0%;
+}
+
+#progressHead{
+  position: relative;
+  float: right;
+  background: red;
+  border-radius: 20px;
+  height: 20px;
+  width: 20px;
+  left: 5px;
+  bottom: 50%;
 }
 
 #duration{

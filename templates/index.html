@@ -47,8 +47,6 @@
                <div class="info">
                   <span class = "infoTitle">{{currentsong.title}}</span>
                   <span class = "infoArtist">{{currentsong.author}}</span>
-                  <div id="current_position" data-position=""></div>
-                  <div id="current_length" data-length=""></div>
                </div>
             </div>
          </div>
@@ -136,8 +134,11 @@
                <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
             </div>
             <div class = "bar">
-               <img id = "progressbar" src = "/static/assets/images/icons/progress_bg.png"/>
-               <img id = "progress" src = "/static/assets/images/icons/circle.png"/>
+              <div id = "progressbar" onclick="visualProgress(event)"  ondrag= "visualProgress(event)" ondragend="setProgress(event)" onmouseup= "setProgress(event)">
+                <div id = "progress" on draggable="false">
+                  <div id = "progressHead" draggable="false"></div>
+                </div>
+              </div>
             </div>
             <div class = "barInfo">
                <span id = "duration">00:00</span>
@@ -147,9 +148,8 @@
       </div>
       <!-- JAVASCRIPT LINKS -->
       <script src = "/static/js/jquery-3.1.1.min.js"></script>
-      <script src = "/static/js/queueManipulation.js"></script>
+      <script src = "/static/js/action.js"></script>
       <script src = "/static/js/poll.js"></script>
       <script src = "/static/js/audio.js"></script>
-      <script src = "/static/js/progressbar.js"></script>
    </body>
 </html>

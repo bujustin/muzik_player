@@ -20,7 +20,7 @@ def poll(request):
     context = interface.getSidebarContext()
     info = str(render_to_response("musicinfo.html", context))
     queue = str(render_to_response("queue.html", context))
-    data = {"info": info, "queue": queue} 
+    data = {"info": info, "queue": queue, "position": context["position"], "length": context["currentsong"]["length"]} 
     return HttpResponse(simplejson.dumps(data))
 
 def add(request, q):
