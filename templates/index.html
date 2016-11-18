@@ -21,8 +21,7 @@
             <div class = "searchbar">
                <div class = "search">
                   <input placeholder="Search..." type="text" id = "searchBox" required>
-                  <input type="image" value = "button" id = "searchButton" class = "clickable"
-                     src = "/static/assets/images/icons/search.png">
+                  <input type="image" value = "button" id = "searchButton" class = "clickable" src = "/static/assets/images/icons/search.png">
                </div>
             </div>
             <!-- RESULTS -->
@@ -38,32 +37,13 @@
                </thead>
                <!-- SONGS -->
                <tbody class = "resultsBody">
-                  <tr class = "song">
-                     <td><span class = "songInfo">odd</span></td>
-                     <td><span class = "songInfo">ARTIST</span></td>
-                     <td><span class = "songInfo">TIME</span></td>
-                     <td class = "action"><span class = "Actions songInfo">
-                        <input type = "image" value = "button" class = "add clickable"
-                           src = "/static/assets/images/icons/plus.png"/>
-                        </span>
-                     </td>
-                  </tr>
-                  <tr class = "song">
-                     <td><span class = "songInfo">even</span></td>
-                     <td><span class = "songInfo">ARTIST</span></td>
-                     <td><span class = "songInfo">TIME</span></td>
-                     <td class = "action"><span class = "Actions songInfo">
-                        <input type = "image" value = "button" class = "add clickable"
-                           src = "/static/assets/images/icons/plus.png"/>
-                        </span>
-                     </td>
-                  </tr>
+                  
                </tbody>
             </table>
             <!-- COVER IMAGE + SONG TITLE -->
-            <div class="musicInfo">
+            <div class = "musicInfo" id = "musicInfo">
                <div class="image">
-                  <img class="profileImg" src="{{ currentsong.thumbnail }}"/>
+                  <img class="profileImg" src="{{currentsong.thumbnail}}"/>
                </div>
                <div class="info">
                   <span class = "infoTitle">{{currentsong.title}}</span>
@@ -80,16 +60,15 @@
               <div class = "queueHeader">Play Queue</div>
                <table id="qTable">
                   <tbody>
-                  {% for song in queue %}
-                  <tr>
-                     <td>
-                        <div>{{ song.title }}</div>
-                        <input type = "image" value = "button" class = "removeButton clickable"
-                           src = "/static/assets/images/icons/x.png"/>
-                     </td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
+                    {% for song in queue %}
+                      <tr>
+                        <td>
+                          <div>{{song.title}}</div>
+                          <input type = "image" value = "button" id = "removeButton" onclick="deleteRow(this)" class = "removeButton clickable" src = "/static/assets/images/icons/x.png"/>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
                </table>
             </div>
          </div>
@@ -152,10 +131,10 @@
          <!-- PROGRESS BAR + AUDIO MANIPULATION -->
          <div class = "audio_player">
             <div id = "audio-buttons">
-               <input type = "image" value = "button" id = "prev" class = "clickable" src = "/assets/images/icons/back-skip.png"/>
-               <input type = "image" value = "button" id = "play" class = "clickable" src = "/assets/images/icons/play.png"/>
-               <input type = "image" value = "button" id = "pause" class = "clickable" src = "/assets/images/icons/pause.png"/>
-               <input type = "image" value = "button" id = "next" class = "clickable" src = "/assets/images/icons/skip.png"/>
+               <input type = "image" value = "button" id = "prev" class = "clickable" src = "/static/assets/images/icons/back-skip.png"/>
+               <input type = "image" value = "button" id = "play" class = "clickable" src = "/static/assets/images/icons/play.png"/>
+               <input type = "image" value = "button" id = "pause" class = "clickable" src = "/static/assets/images/icons/pause.png"/>
+               <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
             </div>
             <div class = "bar">
                <img id = "progressbar" src = "/static/assets/images/icons/progress_bg.png"/>
@@ -168,10 +147,9 @@
          </div>
       </div>
       <!-- JAVASCRIPT LINKS -->
-      <script src="/static/js/jquery-3.1.1.min.js"></script>
-      <script src="/static/js/queueManipulation.js"></script>
-      <script src="/static/js/search.js"></script>
-      <script src = "/static/js/action.js"></script>
+      <script src = "/static/js/jquery-3.1.1.min.js"></script>
+      <script src = "/static/js/queueManipulation.js"></script>
+      <script src = "/static/js/poll.js"></script>
       <script src = "/static/js/audio.js"></script>
       <script src = "/static/js/progressbar.js"></script>
    </body>

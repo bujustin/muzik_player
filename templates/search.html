@@ -4,21 +4,19 @@
         <td>Song</td>
         <td>Artist</td>
         <td>Time</td>
-        <td>Source</td>
-        <td>Queue</td>
+        <td></td>
     </tr>
 </thead>
 <!-- SONGS -->
 <tbody class = "resultsBody">
     {% for song in searchresults %}
     <tr class = "song">
-        <td><span class = "songInfo">{{ song.title }}</span></td>
-        <td><span class = "songInfo">{{ song.author }}</span></td>
-        <td><span class = "songInfo">{{ song.length }}</span></td>
-        <td><span class = "songInfo">SOURCE</span></td>
+        <td><span class = "songInfo">{{song.title}}</span></td> <!--{{song.title}}-->
+        <td><span class = "songInfo">author</span></td> <!--{{song.author}}-->
+        <td><span class = "songInfo">{{song.length}}</span></td> 
         <td class = "action">
             <span class = "Actions songInfo">
-                <input type = "image" value = "button" class = "add clickable" onclick = "addToQueue(this)" src = "/static/assets/images/icons/plus.png"/>
+                <input type = "image" value = "button" id = "addButton" onclick="addToQueue(this)" class = "add clickable" src = "/static/assets/images/icons/plus.png"/>
             </span>
         </td>
     </tr>

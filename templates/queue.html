@@ -1,0 +1,10 @@
+<tbody>
+  {% for song in queue %}
+    <tr>
+      <td>
+        <div>{{song.title}}</div>
+        <input type = "image" value = "button" id = "removeButton" onclick="deleteRow(this)" class = "removeButton clickable" src = "/static/assets/images/icons/x.png"/>
+      </td>
+    </tr>
+  {% endfor %}
+</tbody>
