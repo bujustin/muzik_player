@@ -1,41 +1,22 @@
-/* GENERAL BUTTON STYLING */
-.clickable{
-  opacity: 0.4;
-}
-
-.clickable:hover{
-  opacity: 1;
-}
-
-.clickable:focus{
-  outline: none;
-}
-/***************************************/
-
-
 /* SEARCHBAR */
 .searchbar{
   position: relative;
-  vertical-align: center;
-  background-color: black;
-  opacity: 0.6;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #FF3B3F;
   top: 0;
-  height: 10%;
+  height: 60px;
   width: 100%;
 }
 
-.searchbar:hover{
-  opacity: 1.0;
-}
-
 .search{
-  margin-right: 10px;
-  right: 0;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  top: 16px;
   height: 26px;
+  width: 245px;
   display: inline-block;
-  position: absolute;
-  top: 50%;
-  margin-top: -13px;
 
 }
 
@@ -55,8 +36,8 @@
 
 #searchButton{
   position: relative;
-  float: right;
-  margin-top: auto;
+  right: 0;
+  top: 3px;
   height: 15px;
   width: 15px;
   margin-left: 5px;
@@ -70,12 +51,12 @@
   top: 0;
   right: 0;
   width: 100%;
-  background-color: grey;
   border-collapse: collapse;
 }
 
 .searchResults td{
-  width: 22%;
+  width: 27%;
+  overflow-y: hidden;
 }
 
 /* header */
@@ -85,27 +66,28 @@
   top: 2px;
   text-align: left;
   font-weight: bold;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
   padding-left: 10px;
 }
 
 /* body */
-
 .resultsBody{
   overflow-y: scroll;
 }
 
 .song{
   height: 40px;
+  font-size: 13px;
 }
 
 .song:hover{
-  background-color: #F98334;
+  background-color: #FF3B3F;
 }
 
 .action{
   position: relative;
-  width: 8%;
+  width: 19%;
+  text-align: center;
 }
 
 .songInfo{
@@ -117,7 +99,9 @@
 }
 
 .add{
+  position: relative;
   height: 20px;
   width: 20px;
+
 }
 /***************************************/

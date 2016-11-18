@@ -7,7 +7,8 @@
         <link type = "text/css" rel="stylesheet" href="/static/css/box.css">
         <link type = "text/css" rel="stylesheet" href="/static/css/queue.css">
         <link type = "text/css" rel="stylesheet" href="/static/css/player.css">
-        <link type = "text/css" rel = "stylesheet" href = "/static/css/search.css">
+        <link type = "text/css" rel="stylesheet" href="/static/css/search.css">
+        <link type = "text/css" rel="stylesheet" href="/static/css/rightbar.css"
         <title>MUSIC PLAYER</title>
     </head>
     <body>
@@ -37,8 +38,7 @@
                     </div>
                     <div class="info_title">{{currentsong.title}}</div>
                     <div class="inf_artist">{{currentsong.author}}</div>
-                    <div id="current_position" data-position=""></div>
-                    <div id="current_length" data-length=""></div>
+                    <div id="timer"></div>
                 </div>
             </div>
             <!-- SEARCH + SEARCH RESULTS -->
@@ -65,7 +65,7 @@
                         </thead>
                         <!-- SONGS -->
                         <tbody class = "resultsBody">
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -83,8 +83,8 @@
                     <img id = "progress" src = "/static/assets/images/icons/circle.png"/>
                 </div>
                 <div class = "barInfo">
-                    <span id = "duration">00:00:00</span>
-                    <span id = "length">00:00:00</span>
+                    <span id = "duration">00:00</span>
+                    <span id = "length">00:00</span>
                 </div>
             </div>
         </div>
@@ -93,27 +93,5 @@
         <script src="/static/js/audio.js"></script>
         <script src="/static/js/queueManipulation.js"></script>
         <script src="/static/js/poll.js"></script>
-        <script>
-            setInterval(function() { 
-                var bar_width = parseFloat(document.getElementById("progressbar").offsetWidth);
-
-                var song_position = document.getElementById("current_position").getAttribute("data-position");
-                var circle_position = 10 + (bar_width * song_position);
-                document.getElementById("progress").style.left = circle_position.toString() + "px"; 
-
-                var song_length = document.getElementById("current_length").getAttribute("data-length");
-
-                var date_position = new Date(null);
-                date_position.setSeconds(Math.trunc(song_position * song_length));
-                var time_position = date_position.toISOString().substr(11, 8);
-
-                var date_length = new Date(null);
-                date_length.setSeconds(song_length);
-                var time_length = date_length.toISOString().substr(11, 8);
-
-                document.getElementById("duration").innerHTML = time_position;
-                document.getElementById("length").innerHTML = time_length;
-            }, 1000);
-        </script>
     </body>
 </html>
