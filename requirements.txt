@@ -1,5 +1,6 @@
 Django==1.10.2
 gunicorn==19.6.0
 pafy==0.5.2
+simplejson==3.10.0
 whitenoise==3.2.2
 youtube-dl==2016.11.8.1

@@ -2,16 +2,17 @@ import json
 import urllib2
 
 ytkey = "AIzaSyDRNhlYHDjCTo_5AnAuYHbSb53YbnmQIRs"
+numResults = 10
 
 def getSongs(q):
-    getVideoList = urllib2.urlopen("https://www.googleapis.com/youtube/v3/search?q=" + q + "&key=" + ytkey + "&part=snippet&maxResults=20").read()
+    getVideoList = urllib2.urlopen("https://www.googleapis.com/youtube/v3/search?q=" + q + "&key=" + ytkey + "&part=snippet&maxResults=" + str(numResults + 5)).read()
     jsonVideoList = json.loads(getVideoList)
 
     songs = []
 
     count = 0
     for i in xrange(len(jsonVideoList["items"])):
-        if count >= 15:
+        if count >= numResults:
             break
         if jsonVideoList["items"][i]["id"]["kind"] == "youtube#video":
             try:
