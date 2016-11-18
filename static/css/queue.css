@@ -9,7 +9,7 @@ Table#qTable {
     position: relative;
     table-layout: fixed;
     top: 0;
-    font-size: 20px;
+    font-size: 16px;
     width: 100%;
     height: 100%;
     max-height: 51px;
@@ -34,8 +34,8 @@ Table#qTable {
     padding-right: 8%;
 }
 
-#qTable td:hover{
-  background-color: #26F2B8;
+#qTable tbody td:hover{
+  background-color: #FF3B3F;
 }
 
 #qTable td button {
@@ -43,13 +43,19 @@ Table#qTable {
     vertical-align: middle;
 }
 
-#qTable th {
+.queueHeader {
+    position: relative;
+    top: 0;
     padding-left: 5%;
-    height: 54px;
+    padding-top: 10px;
+    height: 50px;
     text-align: left;
     vertical-align: middle;
+    font-family: "Roboto", sans-serif;
     font-size: 35px;
-    border-bottom: 2px solid grey;
+    font-weight: bold;
+    color: #FF3B3F;
+    border-bottom: 2px solid gray;
 }
 
 #qTable td div {
@@ -88,17 +94,8 @@ Table#qTable {
 }
 
 .removeButton {
-    background-color: #99A3A4 ;
-    border: none;
-    cursor: pointer;
-    color: #273746 ;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    float:right;
+    width: 20px;
+    height: 20px;
     outline: none;
-
-}
-
-.removeButton:hover {
-    background-color: #BFC9CA ;
 }

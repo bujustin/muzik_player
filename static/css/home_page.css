@@ -1,0 +1,98 @@
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro';
+
+@import 'https://fonts.googleapis.com/css?family=Cabin';
+
+@font-face {
+    font-family: Journal Sans New;
+    src: url(assets/journal-sans/journal-sans-reg.otf);
+    font-weight: normal;
+}
+
+@font-face{
+  font-family: Cooper Hewitt;
+  src: url(assets/cooper-hewitt/CooperHewitt-Book.otf);
+  font-weight: normal;
+}
+
+@font-face{
+  font-family: Cooper Hewitt;
+  src: url(assets/cooper-hewitt/CooperHewitt-Thin.otf);
+  font-weight: lighter;
+}
+
+@font-face{
+  font-family: Selima;
+  src: url(assets/Selima.otf);
+  font-weight: normal;
+}
+
+@font-face{
+  font-family: Canter;
+  src: url(assets/canter/Canter Outline.otf);
+  font-weight: normal;
+}
+
+@font-face{
+  font-family: Canter;
+  src: url(assets/canter/Canter Light.otf);
+  font-weight: lighter;
+}
+
+@font-face{
+  font-family: Canter;
+  src: url(assets/canter/Canter Bold.otf);
+  font-weight: bold;
+}
+
+body{
+  background-image: url(assets/images/watercolor-backgrounds-10.jpg);
+  background-size: cover;
+}
+
+#title{
+  font-family: Canter;
+  font-weight: bold;
+  opacity: 0.4;
+  color: black;
+  position: relative;
+  font-size: 100px;
+}
+
+#centerpiece{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+#logreg{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.clickable{
+  font-family: Canter;
+  font-weight: lighter;
+  font-size: 15px;
+  color: white;
+  opacity: 0.4;
+  background-color: transparent;
+  padding: 15px 32px;
+  border: none;
+  height: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  text-decoration: none;
+}
+
+.clickable:hover{
+  opacity: 1;
+}
+
+.clickable:focus{
+  outline: none;
+}

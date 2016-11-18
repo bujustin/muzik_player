@@ -3,6 +3,7 @@ html, body{
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
   overflow: hidden;
 }
 
@@ -19,6 +20,7 @@ html, body{
   bottom:0;
   width: 300px;
   height: 100%;
+  background-color: #CAEBF3;
 }
 
 /* QUEUE */
@@ -37,7 +39,7 @@ html, body{
   height: 50px;
   left: 300px;
   right: 0;
-  background-color: gray;
+  background-color: #FF3B3F;
 }
 
 /* ADDITIONAL FEATURES */
@@ -47,4 +49,31 @@ html, body{
   width: 300px;
   top: 0;
   bottom: 50px;
+  background-color: rgba(223,220,227, 0.4);
+}
+
+/* TABLE STYLING */
+tbody tr:nth-child(odd){
+  background-color: rgba(169,169,169,0.5);
+}
+
+tbody tr:nth-child(even){
+  background-color: rgba(239,239,239,0.7);
+}
+
+thead{
+  font-family: "Roboto", sans-serif;
+}
+
+/* GENERAL BUTTON STYLING */
+.clickable{
+  opacity: 0.6;
+}
+
+.clickable:hover{
+  opacity: 1;
+}
+
+.clickable:focus{
+  outline: none;
 }

@@ -13,6 +13,8 @@
 
 .friendHeader tr{
   height: 30px;
+  color: #FF3B3F;
+  background-color: #CAEBF3;
 }
 
 .friendHeader td{
@@ -29,6 +31,7 @@
   position: relative;
   width: 100%;
   height: 40px;
+  font-size: 13px;
   background-color: white;
 }
 
@@ -52,8 +55,25 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 40px;
+  height: 60px;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   font-size: 25px;
+  color: #FF3B3F;
   padding-left: 10px;
+}
+
+.recHeader span{
+  position: relative;
+  display: inline;
+  top: 20px;
+}
+
+#recResults{
+  position: relative;
+  width: 100%;
+}
+
+#recResults thead{
+  background-color: #CAEBF3;
 }
