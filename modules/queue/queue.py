@@ -14,6 +14,7 @@ class Queue(object):
             newSong = song
             newSong["url"] = url
             newSong["length"] = video.length
+            
             self.queue.append(newSong)
         except:
             pass
@@ -27,7 +28,7 @@ class Queue(object):
         return self.queue[index]
 
     def getNext(self): 
-        currentSong = self.queue.pop(0)
+        currentSong = self.queue.pop()
         self.history.append(currentSong)
         return currentSong
 

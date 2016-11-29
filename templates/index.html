@@ -1,119 +1,156 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <!-- STYLE LINKS -->
-        <link type = "text/css" rel="stylesheet" href="/static/css/reset.css">
-        <link type = "text/css" rel="stylesheet" href="/static/css/box.css">
-        <link type = "text/css" rel="stylesheet" href="/static/css/queue.css">
-        <link type = "text/css" rel="stylesheet" href="/static/css/player.css">
-        <link type = "text/css" rel = "stylesheet" href = "/static/css/search.css">
-        <title>MUSIC PLAYER</title>
-    </head>
-    <body>
-        <div class="container">
-            <!-- SIDEBAR: THE QUEUE + SONG INFO-->
-            <div class="sidebar" id="sidebar">
-                <!-- QUEUE -->
-                <div class="queueSong">
-                    <table class="qTable" id="qTable">
+   <head>
+      <meta charset="utf-8" content = "text">
+      <!-- FONT LINKS -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Roboto:300,400" rel="stylesheet">
+      <!-- STYLE LINKS -->
+      <link type="text/css" rel="stylesheet" href="/static/css/box.css">
+      <link type="text/css" rel="stylesheet" href="/static/css/queue.css">
+      <link type="text/css" rel="stylesheet" href="/static/css/player.css">
+      <link type="text/css" rel="stylesheet" href="/static/css/search.css">
+      <link type="text/css" rel="stylesheet" href="/static/css/rightbar.css">
+      <title>MUSIC PLAYER</title>
+   </head>
+   <body>
+      <div class="container">
+         <!-- SEARCH RESULTS + SONG INFO-->
+         <div class="sidebar">
+            <!-- SEARCH -->
+            <div class = "searchbar">
+               <div class = "search">
+                  <input placeholder="Search..." type="text" id = "searchBox" required>
+                  <input type="image" value = "button" id = "searchButton" class = "clickable" src = "/static/assets/images/icons/search.png">
+               </div>
+            </div>
+            <!-- RESULTS -->
+            <table id = "searchResults" summary = "search">
+               <!-- HEADER -->
+               <thead class = "resultsHeader">
+                  <tr>
+                     <td>Song</td>
+                     <td>Artist</td>
+                     <td>Time</td>
+                     <td></td>
+                  </tr>
+               </thead>
+               <!-- SONGS -->
+               <tbody class = "resultsBody">
+                  
+               </tbody>
+            </table>
+            <!-- COVER IMAGE + SONG TITLE -->
+            <div class = "musicInfo" id = "musicInfo">
+               <div class="image">
+                  <img class="profileImg" src="{{currentsong.thumbnail}}"/>
+               </div>
+               <div class="info">
+                  <span class = "infoTitle">{{currentsong.title}}</span>
+                  <span class = "infoArtist">{{currentsong.author}}</span>
+               </div>
+            </div>
+         </div>
+         <!-- QUEUE -->
+         <div class = "main">
+            <!-- QUEUE -->
+            <div class="queueSong">
+              <div class = "queueHeader">Play Queue</div>
+               <table id="qTable">
+                  <tbody>
+                    {% for song in queue %}
+                      <tr>
+                        <td>
+                          <div>{{song.title}}</div>
+                          <input type = "image" value = "button" id = "removeButton" onclick="deleteRow(this)" class = "removeButton clickable" src = "/static/assets/images/icons/x.png"/>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <!-- ADDITIONAL FEATURES -->
+         <div class = "rightbar">
+            <div class = "friendContainer">
+                  <table class = "friendStatus">
+                     <thead class = "friendHeader">
                         <tr>
-                            <th>Song Info</th>
+                           <td>Friends</td>
+                           <td>Status</td>
                         </tr>
-                        {% for song in queue %}
+                     </thead>
+                     <tbody class = "friendList">
                         <tr>
-                            <td>
-                                <div>{{ song.title }}</div>
-                                <button class="removeButton" onclick="deleteRow(this)">X</button>
-                            </td>
+                           <td>friend 1</td>
+                           <td>OFFLINE</td>
                         </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-                <!-- COVER IMAGE + SONG TITLE -->
-                <div class="musicInfo">
-                    <div class="image">
-                        <img class="profileImg" src="{{ currentsong.thumbnail }}"/>
-                    </div>
-                    <div class="info_title">{{currentsong.title}}</div>
-                    <div class="inf_artist">{{currentsong.author}}</div>
-                    <div id="current_position" data-position=""></div>
-                    <div id="current_length" data-length=""></div>
-                </div>
+                     </tbody>
+                  </table>
             </div>
-            <!-- SEARCH + SEARCH RESULTS -->
-            <div class = "mainContainer">
-                <div class="main">
-                    <!-- SEARCH -->
-                    <div class = "searchbar">
-                        <div class = "search">
-                            <input placeholder="Search..." type="text" id = "searchBox" required>
-                            <input type="image" value = "button" id = "searchButton" class = "clickable" onclick = "getSearch()" src = "/static/assets/images/icons/search.png">
-                        </div>
-                    </div>
-                    <!-- RESULTS -->
-                    <table id = "searchResults" summary = "search">
-                        <!-- HEADER -->
-                        <thead class = "resultsHeader">
-                            <tr>
-                                <td>Song</td>
-                                <td>Artist</td>
-                                <td>Time</td>
-                                <td>Source</td>
-                                <td>Queue</td>
-                            </tr>
-                        </thead>
-                        <!-- SONGS -->
-                        <tbody class = "resultsBody">
-                            
-                        </tbody>
-                    </table>
-                </div>
+            <div class = "recommendationsContainer">
+              <div class = "recHeader"><span>Recommendations</span></div>
+              <table id = "recResults" summary = "recommendations">
+                 <!-- HEADER -->
+                 <thead class = "resultsHeader">
+                    <tr>
+                       <td>Song</td>
+                       <td>Artist</td>
+                       <td>Time</td>
+                       <td></td>
+                    </tr>
+                 </thead>
+                 <!-- SONGS -->
+                 <tbody class = "resultsBody">
+                    <tr class = "song">
+                       <td><span class = "songInfo">odd</span></td>
+                       <td><span class = "songInfo">ARTIST</span></td>
+                       <td><span class = "songInfo">TIME</span></td>
+                       <td class = "action"><span class = "Actions songInfo">
+                          <input type = "image" value = "button" class = "add clickable"
+                             src = "/static/assets/images/icons/plus.png"/>
+                          </span>
+                       </td>
+                    </tr>
+                    <tr class = "song">
+                       <td><span class = "songInfo">even</span></td>
+                       <td><span class = "songInfo">ARTIST</span></td>
+                       <td><span class = "songInfo">TIME</span></td>
+                       <td class = "action"><span class = "Actions songInfo">
+                          <input type = "image" value = "button" class = "add clickable"
+                             src = "/static/assets/images/icons/plus.png"/>
+                          </span>
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>
             </div>
-            <!-- PROGRESS BAR + AUDIO MANIPULATION -->
-            <div class = "audio_player">
-                <div id = "audio-buttons">
-                    <input type = "image" value = "button" id = "prev" class = "clickable" src = "/static/assets/images/icons/back-skip.png"/>
-                    <input type = "image" value = "button" id = "play" class = "clickable" src = "/static/assets/images/icons/play.png"/>
-                    <input type = "image" value = "button" id = "pause" class = "clickable" src = "/static/assets/images/icons/pause.png"/>
-                    <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
-                </div>
-                <div class = "bar">
-                    <img id = "progressbar" src = "/static/assets/images/icons/progress_bg.png"/>
-                    <img id = "progress" src = "/static/assets/images/icons/circle.png"/>
-                </div>
-                <div class = "barInfo">
-                    <span id = "duration">00:00:00</span>
-                    <span id = "length">00:00:00</span>
-                </div>
+         </div>
+         <!-- PROGRESS BAR + AUDIO MANIPULATION -->
+         <div class = "audio_player">
+            <div id = "audio-buttons">
+               <input type = "image" value = "button" id = "prev" class = "clickable" src = "/static/assets/images/icons/back-skip.png"/>
+               <input type = "image" value = "button" id = "play" class = "clickable" src = "/static/assets/images/icons/play.png"/>
+               <input type = "image" value = "button" id = "pause" class = "clickable" src = "/static/assets/images/icons/pause.png"/>
+               <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
             </div>
-        </div>
-        <!-- JAVASCRIPT LINKS -->
-        <script src="/static/js/jquery-3.1.1.min.js"></script>
-        <script src="/static/js/audio.js"></script>
-        <script src="/static/js/queueManipulation.js"></script>
-        <script src="/static/js/poll.js"></script>
-        <script>
-            setInterval(function() { 
-                var bar_width = parseFloat(document.getElementById("progressbar").offsetWidth);
-
-                var song_position = document.getElementById("current_position").getAttribute("data-position");
-                var circle_position = 10 + (bar_width * song_position);
-                document.getElementById("progress").style.left = circle_position.toString() + "px"; 
-
-                var song_length = document.getElementById("current_length").getAttribute("data-length");
-
-                var date_position = new Date(null);
-                date_position.setSeconds(Math.trunc(song_position * song_length));
-                var time_position = date_position.toISOString().substr(11, 8);
-
-                var date_length = new Date(null);
-                date_length.setSeconds(song_length);
-                var time_length = date_length.toISOString().substr(11, 8);
-
-                document.getElementById("duration").innerHTML = time_position;
-                document.getElementById("length").innerHTML = time_length;
-            }, 1000);
-        </script>
-    </body>
+            <div class = "bar">
+              <div id = "progressbar" onclick="visualProgress(event)"  ondrag= "visualProgress(event)" ondragend="setProgress(event)" onmouseup= "setProgress(event)">
+                <div id = "progress" on draggable="false">
+                  <div id = "progressHead" draggable="false"></div>
+                </div>
+              </div>
+            </div>
+            <div class = "barInfo">
+               <span id = "duration">00:00</span>
+               <span id = "length">00:00</span>
+            </div>
+         </div>
+      </div>
+      <!-- JAVASCRIPT LINKS -->
+      <script src = "/static/js/jquery-3.1.1.min.js"></script>
+      <script src = "/static/js/action.js"></script>
+      <script src = "/static/js/poll.js"></script>
+      <script src = "/static/js/audio.js"></script>
+      <script src = "/static/js/progress.js"></script>
+   </body>
 </html>

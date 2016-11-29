@@ -2,6 +2,7 @@ from django.shortcuts import *
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 
+import simplejson
 import sys
 sys.path.append("..")
 from modules.interface import Interface
@@ -17,15 +18,20 @@ def search(request, q):
 
 def poll(request):
     context = interface.getSidebarContext()
-    return render_to_response("sidebar.html", context)
+    info = str(render_to_response("musicinfo.html", context))
+    queue = str(render_to_response("queue.html", context))
+    data = {"info": info, "queue": queue,"position": context["position"], "length": context["currentsong"]["length"]} 
+    return HttpResponse(simplejson.dumps(data))
 
 def add(request, q):
     interface.addToQueueFromSearch(q)
-    return HttpResponseRedirect(reverse("index"))
+    context = interface.getSidebarContext()
+    return render_to_response("queue.html", context)
 
 def delete(request, q):
     interface.deleteFromQueue(q)
-    return HttpResponseRedirect(reverse("index"))
+    context = interface.getSidebarContext()
+    return render_to_response("queue.html", context)
 
 def play(request):
     interface.playerPlay()

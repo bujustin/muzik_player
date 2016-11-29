@@ -43,7 +43,7 @@ class Interface(object):
         self.queue.addToQueue(song)
 
     def deleteFromQueue(self, index):
-        self.queue.removeFromQueue(int(index) - 1)
+        self.queue.removeFromQueue(int(index))
 
     """
     Player
@@ -64,7 +64,7 @@ class Interface(object):
         self.playPrev()
 
     def playerSetPos(self, q):
-        percentage = int(q) / 100.0
+        percentage = int(q) / 10000.0
         self.player.setPosition(percentage)
 
 
@@ -79,8 +79,6 @@ class Interface(object):
             self.currentSong = self.queue.getNext()
             self.player.Open(self.currentSong)
             self.player.Play()
-        else:
-            self.currentSong = getBlank()
 
     def playPrev(self):
         if self.queue.hasPrev():
