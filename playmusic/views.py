@@ -17,20 +17,17 @@ def search(request, q):
     return render_to_response("search.html", context)
 
 def poll(request):
-    context = interface.getSidebarContext()
-    info = str(render_to_response("musicinfo.html", context))
-    queue = str(render_to_response("queue.html", context))
-    data = {"info": info, "queue": queue, "position": context["position"], "length": context["currentsong"]["length"]} 
+    data = interface.getPoll()
     return HttpResponse(simplejson.dumps(data))
 
 def add(request, q):
     interface.addToQueueFromSearch(q)
-    context = interface.getSidebarContext()
+    context = interface.getQueueContext()
     return render_to_response("queue.html", context)
 
 def delete(request, q):
     interface.deleteFromQueue(q)
-    context = interface.getSidebarContext()
+    context = interface.getQueueContext()
     return render_to_response("queue.html", context)
 
 def play(request):

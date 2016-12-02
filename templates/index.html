@@ -134,7 +134,7 @@
                <input type = "image" value = "button" id = "next" class = "clickable" src = "/static/assets/images/icons/skip.png"/>
             </div>
             <div class = "bar">
-              <div id = "progressbar" onclick="visualProgress(event)"  ondrag= "visualProgress(event)" ondragend="setProgress(event)" onmouseup= "setProgress(event)">
+              <div id = "progressbar" onmouseup= "setProgress(event)"> <!--onclick="visualProgress(event)"  ondrag= "visualProgress(event)" ondragend="setProgress(event)"-->
                 <div id = "progress" on draggable="false">
                   <div id = "progressHead" draggable="false"></div>
                 </div>
@@ -151,5 +151,6 @@
       <script src = "/static/js/action.js"></script>
       <script src = "/static/js/poll.js"></script>
       <script src = "/static/js/audio.js"></script>
+      <script src = "/static/js/progress.js"></script>
    </body>
 </html>

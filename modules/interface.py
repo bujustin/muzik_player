@@ -1,3 +1,5 @@
+from django.shortcuts import *
+
 import threading
 import datetime
 
@@ -11,8 +13,12 @@ class Interface(object):
         self.queue = Queue()
 
         self.currentSong = getBlank()
+        self.displayedSong = getBlank()
         self.searchResults = []
 
+    """
+    Get Requests
+    """
     def getIndexContext(self):
         context = {
             "queue": self.queue.getQueue(),
@@ -27,11 +33,26 @@ class Interface(object):
         }
         return context
 
-    def getSidebarContext(self):
+    def getPoll(self):
+        if self.displayedSong != self.currentSong: #if frontend needs to be refreshed
+            context = {
+                "queue": self.queue.getQueue(),
+                "currentsong": self.currentSong,
+            }
+
+            infoHtml = str(render_to_response("musicinfo.html", context))
+            queueHtml = str(render_to_response("queue.html", context))
+            data = {"refresh": True, "info": infoHtml, "queue": queueHtml, "position": self.player.getPosition(), "length": self.currentSong["length"]} 
+
+            self.displayedSong = self.currentSong
+            return data
+        else: #if not just return song position data
+            data = {"refresh": False, "position": self.player.getPosition(), "length": self.currentSong["length"]}
+            return data
+
+    def getQueueContext(self):
         context = {
             "queue": self.queue.getQueue(),
-            "currentsong": self.currentSong,
-            "position": self.player.getPosition()
         }
         return context
 
@@ -43,7 +64,7 @@ class Interface(object):
         self.queue.addToQueue(song)
 
     def deleteFromQueue(self, index):
-        self.queue.removeFromQueue(int(index) - 1)
+        self.queue.removeFromQueue(int(index))
 
     """
     Player
@@ -67,7 +88,9 @@ class Interface(object):
         percentage = int(q) / 100.0
         self.player.setPosition(percentage)
 
-
+    """
+    Song Selection
+    """
     def timer(self):
         if self.player.isEnded() or self.player.isEmpty():
             self.playNext()
@@ -79,6 +102,9 @@ class Interface(object):
             self.currentSong = self.queue.getNext()
             self.player.Open(self.currentSong)
             self.player.Play()
+        elif self.player.isEmpty or self.player.isEmpty():
+            self.currentSong = getBlank()
+            self.player.Pause()
 
     def playPrev(self):
         if self.queue.hasPrev():
