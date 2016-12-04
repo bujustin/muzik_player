@@ -49,3 +49,11 @@ def prev(request):
 def setpos(request, q):
     interface.playerSetPos(q)
     return HttpResponseRedirect(reverse("index"))
+
+def adusr(request):
+    index = interface.addUser()
+    return HttpResponse(index)
+
+def rmusr(request, q):
+    interface.removeUser(q)
+    return HttpResponseRedirect(reverse("index"))

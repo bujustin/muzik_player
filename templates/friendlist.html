@@ -1,0 +1,14 @@
+<thead class = "friendHeader">
+   <tr>
+      <td>Friends</td>
+      <td>Status</td>
+   </tr>
+</thead>
+<tbody class = "friendList">
+   {% for user in users %}
+     <tr>
+        <td>{{user}}</td>
+        <td>ONLINE</td>
+     </tr>
+   {% endfor %}
+</tbody>
