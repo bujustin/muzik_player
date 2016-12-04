@@ -25,4 +25,8 @@ urlpatterns = [
     url(r'^setpos/(?P<q>(\d+))/$', views.setpos, name='setpos'),
 
     url(r'^poll$', views.poll, name='poll'),
+
+    url(r'^adusr$', views.adusr, name='adusr'),
+
+    url(r'^rmusr/(?P<q>(\d+))/$', views.rmusr, name='rmusr'),
 ]

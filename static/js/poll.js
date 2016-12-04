@@ -10,6 +10,7 @@ function poll() {
         		updateProgress(data.position, data.length);
         	}
         	else if (data.refresh == false) {
+        		$("#friendStatus").html(data.friendlist);
         		updateProgress(data.position, data.length);
         	}
         }

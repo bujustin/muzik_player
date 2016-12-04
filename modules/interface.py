@@ -16,6 +16,9 @@ class Interface(object):
         self.displayedSong = getBlank()
         self.searchResults = []
 
+        self.userCount = 0
+        self.users = {}
+
     """
     Get Requests
     """
@@ -47,7 +50,8 @@ class Interface(object):
             self.displayedSong = self.currentSong
             return data
         else: #if not just return song position data
-            data = {"refresh": False, "position": self.player.getPosition(), "length": self.currentSong["length"]}
+            friendlistHtml = str(render_to_response("friendlist.html", self.getUserContext()))
+            data = {"refresh": False, "position": self.player.getPosition(), "length": self.currentSong["length"], "friendlist": friendlistHtml}
             return data
 
     def getQueueContext(self):
@@ -87,6 +91,23 @@ class Interface(object):
     def playerSetPos(self, q):
         percentage = int(q) / 100.0
         self.player.setPosition(percentage)
+
+    """
+    Friend List
+    """
+    def addUser(self):
+        self.userCount += 1
+        self.users[self.userCount] = "Friend " + str(self.userCount)
+        return self.userCount
+
+    def removeUser(self, index):
+        del self.users[int(index)]
+
+    def getUserContext(self):
+        context = {
+            "users": self.users.values()
+        }
+        return context
 
     """
     Song Selection

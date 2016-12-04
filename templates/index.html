@@ -36,7 +36,7 @@
                </thead>
                <!-- SONGS -->
                <tbody class = "resultsBody">
-                  
+                  <!--templating inserts here-->
                </tbody>
             </table>
             <!-- COVER IMAGE + SONG TITLE -->
@@ -72,7 +72,7 @@
          <!-- ADDITIONAL FEATURES -->
          <div class = "rightbar">
             <div class = "friendContainer">
-                  <table class = "friendStatus">
+                  <table class = "friendStatus" id = "friendStatus">
                      <thead class = "friendHeader">
                         <tr>
                            <td>Friends</td>
@@ -80,10 +80,7 @@
                         </tr>
                      </thead>
                      <tbody class = "friendList">
-                        <tr>
-                           <td>friend 1</td>
-                           <td>OFFLINE</td>
-                        </tr>
+                        <!--templating inserts here-->
                      </tbody>
                   </table>
             </div>
@@ -152,5 +149,6 @@
       <script src = "/static/js/poll.js"></script>
       <script src = "/static/js/audio.js"></script>
       <script src = "/static/js/progress.js"></script>
+      <script src = "/static/js/users.js"></script>
    </body>
 </html>
