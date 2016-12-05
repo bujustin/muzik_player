@@ -78,6 +78,7 @@
 .song{
   height: 40px;
   font-size: 13px;
+  overflow: hidden;
 }
 
 .song:hover{
@@ -96,6 +97,7 @@
   height: 5px;
   top: 10px;
   margin-left: 10px;
+  overflow: hidden;
 }
 
 .add{
