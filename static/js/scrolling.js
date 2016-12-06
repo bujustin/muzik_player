@@ -8,8 +8,6 @@ Scrolling*********************************
 
 function scrollText(container, element){
 
-  alert('ok');
-
   var elementWidth = element.width();
   var startPos = container.width(); //rightmost position of the container
 
