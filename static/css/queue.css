@@ -81,7 +81,7 @@ Table#qTable {
 }
 
 .scrolling:hover {
-    animation: moveSlideshow 5s linear infinite;
+    animation: moveSlideshow 3s linear infinite;
 }
 
 .scrolling {
