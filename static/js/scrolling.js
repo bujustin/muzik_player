@@ -1,8 +1,15 @@
+
+/*
+Scrolling*********************************
+*/
+
 /**
 * Scrolling text (right to left)
 **/
 
 function scrollText(container, element){
+
+  alert('ok');
 
   var elementWidth = element.width();
   var startPos = container.width(); //rightmost position of the container
@@ -21,18 +28,20 @@ function scrollText(container, element){
         'linear',
         scrollText()});
     }
+    element.css({
+      'width': elementWidth,
+      'left': startPos
+    });
   }
 }
 
 
 //event listeners for scrolling text
-$("#searchResults").bind("mouseover", function(e){
-  var row = e.target.closest(".song");
-  var container = row.first(); //song title cell
-  var element = container.find(".songInfo:first"); //the span
-  if(container[0].scrollWidth > container.innerWidth()) //overflow
+$(".songTitle").mouseenter(function(e){
+  var container = e.target;
+  var element = container.closest('.songInfo');
+  if(container.scrollWidth > container.innerWidth()) //overflow
   {
     scrollText(container, element);
   }
-}
-));
+});

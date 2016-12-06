@@ -2,16 +2,16 @@
 <thead class = "resultsHeader">
     <tr>
         <td>Song</td>
-        <td>Time</td>
-        <td></td>
+        <td class = "time">Time</td>
+        <td class = "action"></td>
     </tr>
 </thead>
 <!-- SONGS -->
 <tbody class = "resultsBody">
     {% for song in searchresults %}
     <tr class = "song">
-        <td><span class = "songInfo">{{song.title}}</span></td> <!--{{song.title}}-->
-        <td><span class = "songInfo">{{song.length}}</span></td>
+        <td class = "songTitle"><span class = "songInfo">{{song.title}}</span></td> <!--{{song.title}}-->
+        <td class = "time"><span class = "songInfo">{{song.length}}</span></td>
         <td class = "action">
             <span class = "Actions songInfo">
                 <input type = "image" value = "button" id = "addButton" onclick="addToQueue(this)" class = "add clickable" src = "/static/assets/images/icons/plus.png"/>
