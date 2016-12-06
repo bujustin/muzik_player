@@ -40,6 +40,12 @@ class VlcPlayer(object):
         else:
             return False
 
+    def isPlaying(self):
+        if self.player.get_state() == vlc.State.Ended or self.player.get_state() == vlc.State.NothingSpecial or self.player.get_state() == vlc.State.Paused:
+            return False
+        else:
+            return True
+
     def setPosition(self, percentage):
         if percentage >= 0 and percentage < 1:
             self.player.set_position(percentage)

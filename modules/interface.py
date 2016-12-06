@@ -13,7 +13,6 @@ class Interface(object):
         self.queue = Queue()
 
         self.currentSong = getBlank()
-        self.displayedSong = getBlank()
         self.searchResults = []
 
         self.userCount = 0
@@ -37,22 +36,27 @@ class Interface(object):
         return context
 
     def getPoll(self):
-        if self.displayedSong != self.currentSong: #if frontend needs to be refreshed
-            context = {
-                "queue": self.queue.getQueue(),
-                "currentsong": self.currentSong,
-            }
+        context = {
+            "queue": self.queue.getQueue(),
+            "currentsong": self.currentSong,
+        }
 
-            infoHtml = str(render_to_response("musicinfo.html", context))
-            queueHtml = str(render_to_response("queue.html", context))
-            data = {"refresh": True, "info": infoHtml, "queue": queueHtml, "position": self.player.getPosition(), "length": self.currentSong["length"]} 
+        infoHtml = str(render_to_response("musicinfo.html", context))
+        queueHtml = str(render_to_response("queue.html", context))
+        friendlistHtml = str(render_to_response("friendlist.html", self.getUserContext()))
 
-            self.displayedSong = self.currentSong
-            return data
-        else: #if not just return song position data
-            friendlistHtml = str(render_to_response("friendlist.html", self.getUserContext()))
-            data = {"refresh": False, "position": self.player.getPosition(), "length": self.currentSong["length"], "friendlist": friendlistHtml}
-            return data
+        data = {
+            "info": infoHtml, 
+            "infourl": self.currentSong["url"],
+            "queue": queueHtml, 
+            "queuelength": len(self.queue.getQueue()), 
+            "position": self.player.getPosition(), 
+            "length": self.currentSong["length"],
+            "friendlist": friendlistHtml,
+            "isplaying": self.player.isPlaying()
+        } 
+
+        return data
 
     def getQueueContext(self):
         context = {
