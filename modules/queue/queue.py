@@ -13,7 +13,7 @@ class Queue(object):
 
             newSong = song
             newSong["url"] = url
-            newSong["length"] = video.length
+            newSong["length"] = video.length #length value is changed to video length in seconds
             self.queue.append(newSong)
         except:
             pass
