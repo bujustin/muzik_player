@@ -6,9 +6,10 @@
   height: 60%;
 }
 
-.friendStatus{
+#friendStatus{
   position: relative;
   width: 100%;
+  border-collapse: collapse;
 }
 
 .friendHeader tr{
