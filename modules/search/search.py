@@ -12,9 +12,8 @@ def YTDurationToSeconds(duration):
     minutes = _js_parseInt(match[1]) if match[1] else 0
     seconds = _js_parseInt(match[2]) if match[2] else 0
     sec=str(seconds)
-    minu =str(minutes)
-    ho = str(hours)
-    return ho+":"+minu+":"+sec
+    minu =str(minutes+hours*60)
+    return minu+":"+sec
 def _js_parseInt(string):
     return int(''.join([x for x in string if x.isdigit()]))
 
