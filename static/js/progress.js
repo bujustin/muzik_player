@@ -8,12 +8,12 @@ function updateProgress(position, length) {
 
 	var positionDate = new Date(null);
 	positionDate.setSeconds(Math.trunc(position * length));
-	var positionTime = positionDate.toISOString().substr(14, 5);
+	var positionTime = positionDate.toISOString().substr(14, 5); //changed from 11, 5
 
 	song_length = length;
 	var lengthDate = new Date(null);
 	lengthDate.setSeconds(length);
-	var lengthTime = lengthDate.toISOString().substr(14, 5);
+	var lengthTime = lengthDate.toISOString().substr(14, 5); //changed from 11, 5
 
 	document.getElementById("duration").innerHTML = positionTime;
 	document.getElementById("length").innerHTML = lengthTime;
@@ -28,7 +28,7 @@ function setProgress(event) {
 
     var positionDate = new Date(null);
     positionDate.setSeconds(Math.trunc(newPercent * song_length));
-    var positionTime = positionDate.toISOString().substr(14, 5);
+    var positionTime = positionDate.toISOString().substr(14, 5); //changed from 11, 5
     document.getElementById("duration").innerHTML = positionTime;
 }
 
