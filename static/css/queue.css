@@ -69,7 +69,7 @@ Table#qTable {
     margin-top: 0em;
 }
 
-#qTable td div text {
+.text {
     color: inherit;
     text-decoration: none;
     margin-top: 0em;
@@ -81,7 +81,7 @@ Table#qTable {
 }
 
 .scrolling:hover {
-    margin-left: -100px;
+    animation: moveSlideshow 5s linear infinite;
 }
 
 .scrolling {
@@ -93,6 +93,11 @@ Table#qTable {
     transition-timing-function: linear;
 }
 
+@keyframes moveSlideshow {
+    100% {
+        transform: translateX(-66%);
+    }
+}
 .removeButton {
     float:right;
     width: 20px;
